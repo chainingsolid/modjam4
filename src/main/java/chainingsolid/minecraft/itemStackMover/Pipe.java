@@ -6,11 +6,13 @@ public class Pipe {
 	
 	public String colorName = "color";
 	
-	EnumPipeColor color;
+	public boolean exists = false;
 	
+	public EnumPipeColor color;
+	public final EnumPipePostition POSITION;
 	
-	public Pipe(){
-		
+	public Pipe(EnumPipePostition pipePos){
+		this.POSITION = pipePos;
 		
 		
 		

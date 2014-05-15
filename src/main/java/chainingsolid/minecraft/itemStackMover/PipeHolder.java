@@ -20,13 +20,10 @@ public class PipeHolder extends BlockContainer {
 		if(world.isRemote){
 			return false;
 		}
-		System.out.println("Side:"+side+"\tx: "+sideX+"\ty: "+sideY+"\tz: "+sideZ);
 		TileEntity tile = world.getTileEntity(x, y, z);
 		if(tile instanceof PipeHolderTile){
-			
-			
-			
-			
+			PipeHolderTile pipeHolderTile = (PipeHolderTile) tile;
+			pipeHolderTile.onPlayerClick(x, y, z, player, side, sideX, sideY, sideZ);
 			return true;
 		}
 		return false;
