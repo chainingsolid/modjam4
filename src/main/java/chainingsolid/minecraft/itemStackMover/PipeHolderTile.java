@@ -49,11 +49,12 @@ public class PipeHolderTile extends TileEntity {
 		
 		ItemStack heldStack = player.getHeldItem();
 		
-		if(player.isSneaking()){
+		if(player.isSneaking() && p.exists){
 			p.exists = false;
 			ItemStack backToWorld = p.getPipeToPutBackIntoWorld();
 			EntityItem e = new EntityItem(worldObj, x, y, z, backToWorld);
-			worldObj.joinEntityInSurroundings(e);
+			worldObj.spawnEntityInWorld(e);
+			System.out.println("here's your pipe back");
 		}
 		if(heldStack == null){
 			this.openGUI(player, x, y, z);
