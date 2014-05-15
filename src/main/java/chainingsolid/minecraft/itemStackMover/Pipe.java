@@ -1,9 +1,12 @@
 package chainingsolid.minecraft.itemStackMover;
 
+import java.util.HashMap;
+
 import net.minecraft.block.BlockColored;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class Pipe {
 	
@@ -14,12 +17,23 @@ public class Pipe {
 	public int color = 0;
 	public final EnumPipePostition POSITION;
 	
+	public final HashMap<ForgeDirection,PipeBuffer> connections = new HashMap();
+	
+	public ForgeDirection[] directions = new ForgeDirection[]{
+			ForgeDirection.UP,
+			ForgeDirection.DOWN,
+			ForgeDirection.EAST,
+			ForgeDirection.WEST,
+			ForgeDirection.NORTH,
+			ForgeDirection.SOUTH
+			};
+	
 	public Pipe(EnumPipePostition pipePos){
 		this.POSITION = pipePos;
 		
-		
-		
-		
+		for(ForgeDirection direction : directions){
+			connections.put(direction, new PipeBuffer());
+		}
 		
 	}
 	
@@ -52,5 +66,12 @@ public class Pipe {
 	public void syncFromPacket(Packet p){
 		
 	}
+	
+	public void tick(){
+		
+		
+		
+	}
+	
 	
 }
