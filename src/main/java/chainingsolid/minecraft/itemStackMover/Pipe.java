@@ -5,11 +5,11 @@ import net.minecraft.nbt.NBTTagCompound;
 
 public class Pipe {
 	
-	public String colorName = "color";
+	public static final String COLOR_NAME = "color";
 	
 	public boolean exists = false;
 	
-	public BlockColored blockForColor;
+	public int color = 0;
 	public final EnumPipePostition POSITION;
 	
 	public Pipe(EnumPipePostition pipePos){
