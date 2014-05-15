@@ -14,7 +14,7 @@ public class PipeHolder extends BlockContainer {
 	
 	@Override
 	public TileEntity createNewTileEntity(World var1, int var2) {
-		return null;
+		return new PipeHolderTile();
 	}
 	
 }

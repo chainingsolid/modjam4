@@ -15,7 +15,7 @@ public class ItemStackMoverMod {
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
-		
+		System.out.println("preInit");
 	}
 	
 	
