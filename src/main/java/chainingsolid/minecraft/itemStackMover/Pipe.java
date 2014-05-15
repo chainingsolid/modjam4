@@ -1,6 +1,8 @@
 package chainingsolid.minecraft.itemStackMover;
 
 import net.minecraft.block.BlockColored;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class Pipe {
@@ -21,6 +23,10 @@ public class Pipe {
 		
 	}
 	
+	public ItemStack getPipeToPutBackIntoWorld(){
+		ItemStack stack = new ItemStack(ItemStackMoverMod.pipe,1,this.color);
+		return stack;
+	}
 	
 	
 	public void writeToNBT(NBTTagCompound tag){

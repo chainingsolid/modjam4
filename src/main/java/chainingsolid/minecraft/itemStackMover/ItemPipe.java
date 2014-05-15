@@ -32,7 +32,12 @@ public class ItemPipe extends Item {
 	
 	@Override
 	public String getItemStackDisplayName(ItemStack stack){
-		return stack.getTagCompound().getString(NAME_TAG);
+		try{
+			return stack.getTagCompound().getString(NAME_TAG);
+		}catch(NullPointerException e){
+			
+		}
+		return "";
 	}
 	
 	

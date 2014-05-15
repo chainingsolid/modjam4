@@ -10,7 +10,7 @@ public class PipeHolder extends BlockContainer {
 	
 	protected PipeHolder(Material material) {
 		super(material);
-		
+		this.setHardness(5);
 	}
 	
 	

@@ -2,6 +2,7 @@ package chainingsolid.minecraft.itemStackMover;
 
 import java.util.HashMap;
 
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -41,35 +42,39 @@ public class PipeHolderTile extends TileEntity {
 	
 	
 	public void onPlayerClick(int x, int y, int z, EntityPlayer player, int side, float sideX, float sideY, float sideZ){
-		ItemStack heldStack = player.getHeldItem();
-		if(heldStack == null){
-			
-		}
-		if(!(heldStack.getItem() instanceof ItemPipe)){
-			
-		}else{
-			ItemPipe pipeItem = (ItemPipe) heldStack.getItem();
-			
-			int roundedSideX = Math.round(sideX);
-			int roundedSideY = Math.round(sideY);
-			int roundedSideZ = Math.round(sideZ);
-			try{
-				System.out.println("pipe got is "+pipes.get(""+roundedSideX+roundedSideY+roundedSideZ).POSITION.name());
-			}catch(NullPointerException e){
-				
-			}
-			Pipe p = pipes.get(""+roundedSideX+roundedSideY+roundedSideZ);
-			if(!p.exists){
-				p.exists = true;
-				p.color = heldStack.getItemDamage();
-				heldStack.stackSize--;
-				
-			}
-		}
+		int roundedSideX = Math.round(sideX);
+		int roundedSideY = Math.round(sideY);
+		int roundedSideZ = Math.round(sideZ);
+		Pipe p = pipes.get(""+roundedSideX+roundedSideY+roundedSideZ);
 		
+		ItemStack heldStack = player.getHeldItem();
+		
+		if(player.isSneaking()){
+			p.exists = false;
+			ItemStack backToWorld = p.getPipeToPutBackIntoWorld();
+			EntityItem e = new EntityItem(worldObj, x, y, z, backToWorld);
+			worldObj.joinEntityInSurroundings(e);
+		}
+		if(heldStack == null){
+			this.openGUI(player, x, y, z);
+		}else{
+			if(!(heldStack.getItem() instanceof ItemPipe)){
+				this.openGUI(player, x, y, z);
+			}else{
+				ItemPipe pipeItem = (ItemPipe) heldStack.getItem();
+				
+				if(!p.exists){
+					p.exists = true;
+					p.color = heldStack.getItemDamage();
+					heldStack.stackSize--;
+				}
+			}
+		}
 	}
 	
-	
+	public void openGUI(EntityPlayer player ,int x,int y,int z){
+		System.out.println("gui time");
+	}
 	
 	
 }
