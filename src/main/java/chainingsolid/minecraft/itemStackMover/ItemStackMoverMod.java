@@ -18,13 +18,16 @@ public class ItemStackMoverMod {
 	
 	
 	public static PipeHolder holder;
+	public static ItemPipe pipe;
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
 		holder = new PipeHolder(Material.wood);
 		GameRegistry.registerBlock(holder, "PipeHolder");
 		holder.setCreativeTab(CreativeTabs.tabTransport);
-		
+		pipe = new ItemPipe();
+		GameRegistry.registerItem(pipe, "Pipe");
+		pipe.setCreativeTab(CreativeTabs.tabTransport);
 	}
 	
 	@EventHandler

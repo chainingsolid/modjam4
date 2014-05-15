@@ -46,7 +46,7 @@ public class PipeHolderTile extends TileEntity {
 			int roundedSideY = Math.round(sideY);
 			int roundedSideZ = Math.round(sideZ);
 			try{
-			System.out.println("piep got is "+pipes.get(""+roundedSideX+roundedSideY+roundedSideZ).POSITION.name());
+				System.out.println("piep got is "+pipes.get(""+roundedSideX+roundedSideY+roundedSideZ).POSITION.name());
 			}catch(NullPointerException e){
 				
 			}
