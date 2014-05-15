@@ -1,6 +1,7 @@
 package chainingsolid.minecraft.itemStackMover;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -22,7 +23,7 @@ public class ItemStackMoverMod {
 	public void preInit(FMLPreInitializationEvent event){
 		holder = new PipeHolder(Material.wood);
 		GameRegistry.registerBlock(holder, "PipeHolder");
-		
+		holder.setCreativeTab(CreativeTabs.tabTransport);
 		
 	}
 	
