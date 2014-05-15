@@ -1,5 +1,6 @@
 package chainingsolid.minecraft.itemStackMover;
 
+import net.minecraft.block.BlockColored;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class Pipe {
@@ -8,7 +9,7 @@ public class Pipe {
 	
 	public boolean exists = false;
 	
-	public EnumPipeColor color;
+	public BlockColored blockForColor;
 	public final EnumPipePostition POSITION;
 	
 	public Pipe(EnumPipePostition pipePos){
