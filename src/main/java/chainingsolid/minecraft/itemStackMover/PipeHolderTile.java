@@ -2,6 +2,7 @@ package chainingsolid.minecraft.itemStackMover;
 
 import java.util.HashMap;
 
+import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -38,6 +39,12 @@ public class PipeHolderTile extends TileEntity {
 		}
 	}
 	
+	@Override
+	public void updateEntity(){
+		
+		
+		
+	}
 	
 	public void onPlayerClick(int x, int y, int z, EntityPlayer player, int side, float sideX, float sideY, float sideZ){
 		int roundedSideX = Math.round(sideX);
@@ -72,7 +79,7 @@ public class PipeHolderTile extends TileEntity {
 	}
 	
 	public void openGUI(EntityPlayer player ,int x,int y,int z){
-		System.out.println("gui time");
+		FMLNetworkHandler.openGui(player, ItemStackMoverMod.mod, 0 , player.getEntityWorld(), x, y, z);
 	}
 	
 	

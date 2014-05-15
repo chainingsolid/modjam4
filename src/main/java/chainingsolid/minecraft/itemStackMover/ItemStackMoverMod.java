@@ -7,6 +7,7 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 
@@ -16,6 +17,7 @@ public class ItemStackMoverMod {
 	@Instance
 	public static ItemStackMoverMod mod;
 	
+	public static GuiHandler guiHandler = new GuiHandler();
 	
 	public static PipeHolder holder;
 	public static ItemPipe pipe;
@@ -33,7 +35,7 @@ public class ItemStackMoverMod {
 	@EventHandler
 	public void init(FMLInitializationEvent event){
 		GameRegistry.registerTileEntity(PipeHolderTile.class, "PipeHolderTile");
-		
+		NetworkRegistry.INSTANCE.registerGuiHandler(mod, guiHandler);
 		
 	}
 	
