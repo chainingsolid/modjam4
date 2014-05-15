@@ -9,7 +9,14 @@ public class Pipe {
 	EnumPipeColor color;
 	
 	
-	
+	public Pipe(){
+		
+		
+		
+		
+		
+		
+	}
 	
 	
 	
