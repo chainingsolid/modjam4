@@ -22,9 +22,18 @@ public class PipeHolderTile extends TileEntity {
 				;
 	
 	public PipeHolderTile(){
-		for(Pipe p : new Pipe[]{topNorthEast,topNorthWest}){
-			pipes.put(topNorthEast.POSITION.posAsString(),
-				this.topNorthEast);
+		for(Pipe p : new Pipe[]{topNorthEast,
+				topNorthWest,
+				topSouthEast,
+				topSouthWest,
+				topSouthWest,
+				bottomNorthEast,
+				bottomNorthWest,
+				bottomSouthEast,
+				bottomSouthWest
+				}){
+			pipes.put(p.POSITION.posAsString(), p);
+			
 		}
 	}
 	
@@ -36,6 +45,12 @@ public class PipeHolderTile extends TileEntity {
 			int roundedSideX = Math.round(sideX);
 			int roundedSideY = Math.round(sideY);
 			int roundedSideZ = Math.round(sideZ);
+			try{
+			System.out.println("piep got is "+pipes.get(""+roundedSideX+roundedSideY+roundedSideZ).POSITION.name());
+			}catch(NullPointerException e){
+				
+			}
+			
 		}
 	}
 	
