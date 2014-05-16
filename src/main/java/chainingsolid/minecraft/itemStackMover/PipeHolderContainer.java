@@ -58,15 +58,20 @@ public class PipeHolderContainer extends Container implements ISlotButtonUser{
 			ItemStack stack = new ItemStack(ItemStackMoverMod.slotButton,1);
 			stack.setStackDisplayName(pos.name());
 			slotButtonInv.setInventorySlotContents(index, stack);
-			this.addSlotToContainer(new SlotButton(slotButtonInv,index,index*SLOT_SIZE+SLOT_SIZE*9, SLOT_SIZE*12, this,pos.name()));
+			if(tile.hasPipeAtPos(pos)){
+				this.addSlotToContainer(new SlotButton(slotButtonInv,index,index*SLOT_SIZE+SLOT_SIZE*9, SLOT_SIZE*12, this,pos.name()));
+			}
 			index++;
 		}
 	}
 	
+	
+	
+	
+	
 	@Override
 	public void onButtonClicked(SlotButton button) {
-		
-		
+		System.out.println(button.returnMessage);
 		
 		
 	}

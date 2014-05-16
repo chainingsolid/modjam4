@@ -12,8 +12,6 @@ public class PipeHolderTile extends TileEntity {
 	
 	public HashMap<String,Pipe> pipes = new HashMap();
 	
-	public Pipe currentPipe;
-	
 	private Pipe topNorthEast = new Pipe(EnumPipePostition.TOP_NORTH_EAST),
 				topNorthWest = new Pipe(EnumPipePostition.TOP_NORTH_WEST),
 				topSouthEast = new Pipe(EnumPipePostition.TOP_SOUTH_EAST),
@@ -23,6 +21,8 @@ public class PipeHolderTile extends TileEntity {
 				bottomSouthEast = new Pipe(EnumPipePostition.BOTTOM_SOUTH_EAST),
 				bottomSouthWest = new Pipe(EnumPipePostition.BOTTOM_SOUTH_WEST)
 				;
+	
+	public Pipe currentPipe;
 	
 	public PipeHolderTile(){
 		for(Pipe p : new Pipe[]{topNorthEast,
@@ -39,6 +39,26 @@ public class PipeHolderTile extends TileEntity {
 			
 		}
 	}
+	
+	public boolean hasPipe(){
+		for(Pipe p : pipes.values()){
+			if(p.exists){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean hasPipeAtPos(EnumPipePostition pos){
+		Pipe p = pipes.get(pos.posAsString());
+		if(p != null){
+			if(p.exists){
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	
 	@Override
 	public void updateEntity(){
