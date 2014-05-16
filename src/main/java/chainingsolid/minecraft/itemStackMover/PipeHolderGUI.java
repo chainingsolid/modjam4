@@ -10,6 +10,8 @@ public class PipeHolderGUI extends GuiContainer {
 	public PipeHolderGUI(PipeHolderContainer container) {
 		super(container);
 		this.contianer = container;
+		this.xSize = 256;
+		this.ySize = 256;
 	}
 	
 	@Override

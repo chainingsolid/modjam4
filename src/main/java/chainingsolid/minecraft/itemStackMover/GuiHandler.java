@@ -13,7 +13,7 @@ public class GuiHandler implements IGuiHandler {
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		TileEntity tile = world.getTileEntity(x, y, z);
 		if(tile instanceof PipeHolderTile){
-			return new PipeHolderContainer((PipeHolderTile) tile);
+			return new PipeHolderContainer((PipeHolderTile) tile, player);
 		}
 		return null;
 	}
@@ -22,7 +22,7 @@ public class GuiHandler implements IGuiHandler {
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		TileEntity tile = world.getTileEntity(x, y, z);
 		if(tile instanceof PipeHolderTile){
-			return new PipeHolderGUI(new PipeHolderContainer((PipeHolderTile) tile));
+			return new PipeHolderGUI(new PipeHolderContainer((PipeHolderTile) tile, player));
 		}
 		return null;
 	}
