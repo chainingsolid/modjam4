@@ -13,6 +13,9 @@ public class SorterPipe extends Pipe {
 	}
 	
 	
-	
+	@Override
+	public void tick(){
+		
+	}
 	
 }
