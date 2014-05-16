@@ -11,6 +11,8 @@ public class PipeHolderContainer extends Container implements ISlotButtonUser{
 	PipeHolderTile tile;
 	public EntityPlayer player;
 	
+	
+	
 	public static int SLOT_SIZE = 18;
 	
 	public PipeHolderContainer(PipeHolderTile tile,  EntityPlayer player){

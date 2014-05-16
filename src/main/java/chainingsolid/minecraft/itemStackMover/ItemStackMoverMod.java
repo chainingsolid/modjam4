@@ -21,6 +21,8 @@ public class ItemStackMoverMod {
 	
 	public static PipeHolder holder;
 	public static ItemPipe pipe;
+	public static SlotButtonItem slotButton;
+	
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
@@ -30,12 +32,19 @@ public class ItemStackMoverMod {
 		pipe = new ItemPipe();
 		GameRegistry.registerItem(pipe, "Pipe");
 		pipe.setCreativeTab(CreativeTabs.tabTransport);
+		slotButton = new SlotButtonItem();
+		GameRegistry.registerItem(slotButton, "slotButton");
+		
+		
 	}
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event){
 		GameRegistry.registerTileEntity(PipeHolderTile.class, "PipeHolderTile");
 		NetworkRegistry.INSTANCE.registerGuiHandler(mod, guiHandler);
+		
+		
+		
 		
 	}
 	

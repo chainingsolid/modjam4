@@ -73,5 +73,12 @@ public class Pipe {
 		
 	}
 	
+	public boolean canConnectToPipe(Pipe p){
+		if(p.color == this.color){
+			return true;
+		}else{
+			return false;
+		}
+	}
 	
 }

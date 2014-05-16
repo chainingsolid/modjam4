@@ -12,6 +12,7 @@ public class PipeHolderTile extends TileEntity {
 	
 	public HashMap<String,Pipe> pipes = new HashMap();
 	
+	public Pipe currentPipe;
 	
 	private Pipe topNorthEast = new Pipe(EnumPipePostition.TOP_NORTH_EAST),
 				topNorthWest = new Pipe(EnumPipePostition.TOP_NORTH_WEST),
@@ -60,6 +61,7 @@ public class PipeHolderTile extends TileEntity {
 			EntityItem e = new EntityItem(worldObj, x, y, z, backToWorld);
 			worldObj.spawnEntityInWorld(e);
 			System.out.println("here's your pipe back");
+			return;
 		}
 		if(heldStack == null){
 			this.openGUI(player, x, y, z);
