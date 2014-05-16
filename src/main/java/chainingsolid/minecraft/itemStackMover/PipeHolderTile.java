@@ -60,7 +60,6 @@ public class PipeHolderTile extends TileEntity {
 			ItemStack backToWorld = p.getPipeToPutBackIntoWorld();
 			EntityItem e = new EntityItem(worldObj, x, y, z, backToWorld);
 			worldObj.spawnEntityInWorld(e);
-			System.out.println("here's your pipe back");
 			return;
 		}
 		if(heldStack == null){

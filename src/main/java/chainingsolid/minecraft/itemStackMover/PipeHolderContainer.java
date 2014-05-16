@@ -3,6 +3,7 @@ package chainingsolid.minecraft.itemStackMover;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
@@ -11,15 +12,18 @@ public class PipeHolderContainer extends Container implements ISlotButtonUser{
 	PipeHolderTile tile;
 	public EntityPlayer player;
 	
-	
+	public InventoryBasic slotButtonInv;
 	
 	public static int SLOT_SIZE = 18;
+	
+	
 	
 	public PipeHolderContainer(PipeHolderTile tile,  EntityPlayer player){
 		this.tile = tile;
 		this.player = player;
+		slotButtonInv = new InventoryBasic("", true, 20);
 		this.addPlayerSlots();
-		
+		this.addSelectorSlots();
 	}
 	
 	@Override
@@ -49,7 +53,14 @@ public class PipeHolderContainer extends Container implements ISlotButtonUser{
 	}
 	
 	public void addSelectorSlots(){
-		
+		int index = 0;
+		for(EnumPipePostition pos : EnumPipePostition.values()){
+			ItemStack stack = new ItemStack(ItemStackMoverMod.slotButton,1);
+			stack.setStackDisplayName(pos.name());
+			slotButtonInv.setInventorySlotContents(index, stack);
+			this.addSlotToContainer(new SlotButton(slotButtonInv,index,index*SLOT_SIZE+SLOT_SIZE*9, SLOT_SIZE*12, this,pos.name()));
+			index++;
+		}
 	}
 	
 	@Override

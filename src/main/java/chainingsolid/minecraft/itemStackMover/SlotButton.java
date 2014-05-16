@@ -4,13 +4,16 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 
-public abstract class SlotButton extends Slot {
+public class SlotButton extends Slot {
 	
 	ISlotButtonUser user;
 	
-	public SlotButton(IInventory inv, int index, int xd, int yd,ISlotButtonUser user) {
+	public String returnMessage;
+	
+	public SlotButton(IInventory inv, int index, int xd, int yd,ISlotButtonUser user,String msg) {
 		super(inv, index, xd, yd);
 		this.user = user;
+		this.returnMessage = msg;
 	}
 	
 	public boolean canTakeStack(EntityPlayer par1EntityPlayer){
