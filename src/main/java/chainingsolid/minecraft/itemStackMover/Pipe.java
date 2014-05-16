@@ -5,6 +5,7 @@ import java.util.Map.Entry;
 
 import net.minecraft.block.BlockColored;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -85,16 +86,17 @@ public class Pipe {
 	public void addSelfToGuiContianer(PipeHolderContainer contianer){
 		int connectionIndex= 0;
 		for(PipeBuffer pb : connections.values()){
-			
+			if(pb.active){
+				contianer.addSlot(new Slot(pb.stacksIn, 0, contianer.SLOT_SIZE*8, connectionIndex*contianer.SLOT_SIZE));
+			}
 		}
-		
-		
-		
 		
 		
 	}
 	
-	
+	public void addSelfToGui(){
+		
+	}
 	
 	
 	

@@ -16,15 +16,23 @@ public class PipeHolderContainer extends Container implements ISlotButtonUser{
 	
 	public static int SLOT_SIZE = 18;
 	
-	
+	public Pipe currentPipe;
 	
 	public PipeHolderContainer(PipeHolderTile tile,  EntityPlayer player){
 		this.tile = tile;
 		this.player = player;
 		slotButtonInv = new InventoryBasic("", true, 20);
+		this.build();
+	}
+	
+	public void build(){
+		this.inventorySlots.clear();
+		this.inventoryItemStacks.clear();
 		this.addPlayerSlots();
 		this.addSelectorSlots();
-		
+		if(this.currentPipe != null){
+			this.addCurrentPipe();
+		}
 	}
 	
 	@Override
@@ -66,16 +74,21 @@ public class PipeHolderContainer extends Container implements ISlotButtonUser{
 		}
 	}
 	
+	public void addSlot(Slot s){
+		this.addSlotToContainer(s);
+	}
 	
-	
-	
+	public void addCurrentPipe(){
+		this.currentPipe.addSelfToGuiContianer(this);
+	}
 	
 	@Override
 	public void onButtonClicked(SlotButton button) {
-		System.out.println(button.returnMessage);
-		
-		
+		EnumPipePostition pos = EnumPipePostition.valueOf(button.returnMessage);
+		this.currentPipe = tile.pipes.get(pos.posAsString());
+		this.build();
 	}
+	
 	
 	
 	
