@@ -4,8 +4,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
+import net.minecraft.item.ItemStack;
 
-public class PipeHolderContainer extends Container {
+public class PipeHolderContainer extends Container implements ISlotButtonUser{
 	
 	PipeHolderTile tile;
 	public EntityPlayer player;
@@ -16,6 +17,12 @@ public class PipeHolderContainer extends Container {
 		this.tile = tile;
 		this.player = player;
 		this.addPlayerSlots();
+		
+	}
+	
+	@Override
+	public ItemStack transferStackInSlot(EntityPlayer player, int slot){
+		return null; 
 	}
 	
 	@Override
@@ -27,16 +34,28 @@ public class PipeHolderContainer extends Container {
 		int index = 0;
 		InventoryPlayer inv = player.inventory;
 		for(int x = 0; x < 9;x++){
-			this.addSlotToContainer(new Slot(inv,index,x*SLOT_SIZE,SLOT_SIZE*10));
+			this.addSlotToContainer(new Slot(inv,index,x*SLOT_SIZE,SLOT_SIZE*12));
 			index++;
 		}
 		
 		for(int y = 0; y < 3;y++){
 			for(int x = 0; x < 9;x++){
-				this.addSlotToContainer(new Slot(inv,index,x*SLOT_SIZE,SLOT_SIZE*y+SLOT_SIZE*7));
+				this.addSlotToContainer(new Slot(inv,index,x*SLOT_SIZE,SLOT_SIZE*y+SLOT_SIZE*9));
 				index++;
 			}
 		}
+	}
+	
+	public void addSelectorSlots(){
+		
+	}
+	
+	@Override
+	public void onButtonClicked(SlotButton button) {
+		
+		
+		
+		
 	}
 	
 	

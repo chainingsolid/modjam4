@@ -15,6 +15,17 @@ public class PipeHolderGUI extends GuiContainer {
 	}
 	
 	@Override
+	public void initGui(){
+		super.initGui();
+		
+		
+		
+		
+		
+	}
+	
+	
+	@Override
 	protected void drawGuiContainerBackgroundLayer(float var1, int var2, int var3) {
 		
 		
