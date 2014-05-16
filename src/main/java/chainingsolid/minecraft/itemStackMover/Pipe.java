@@ -84,10 +84,12 @@ public class Pipe {
 	}
 	
 	public void addSelfToGuiContianer(PipeHolderContainer contianer){
-		int connectionIndex= 0;
+		int connectionIndex = 0;
 		for(PipeBuffer pb : connections.values()){
-			if(pb.active){
-				contianer.addSlot(new Slot(pb.stacksIn, 0, contianer.SLOT_SIZE*8, connectionIndex*contianer.SLOT_SIZE));
+			if(true){
+				contianer.addSlot(new Slot(pb.stacksIn, 0, contianer.SLOT_SIZE*9, (connectionIndex+3)*contianer.SLOT_SIZE));
+				contianer.addSlot(new Slot(pb.stacksOut, 0, contianer.SLOT_SIZE*10, (connectionIndex+3)*contianer.SLOT_SIZE));
+				connectionIndex++;
 			}
 		}
 		
