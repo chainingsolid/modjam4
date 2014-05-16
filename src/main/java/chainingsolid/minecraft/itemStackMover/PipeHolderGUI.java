@@ -23,6 +23,10 @@ public class PipeHolderGUI extends GuiContainer {
 		
 		
 		
+		
+		
+		
+		
 	}
 	
 	
@@ -32,6 +36,8 @@ public class PipeHolderGUI extends GuiContainer {
 			if(o instanceof Slot){
 				Slot s = (Slot)o;
 				this.drawTexturedModalRect(s.xDisplayPosition-1, s.yDisplayPosition-1, 0, 0, 20, 20);//TODO finish
+				
+			}else{
 				
 			}
 		}//x, y, u, v, width, height
