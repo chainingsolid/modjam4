@@ -24,6 +24,7 @@ public class PipeHolderContainer extends Container implements ISlotButtonUser{
 		slotButtonInv = new InventoryBasic("", true, 20);
 		this.addPlayerSlots();
 		this.addSelectorSlots();
+		
 	}
 	
 	@Override
@@ -57,10 +58,10 @@ public class PipeHolderContainer extends Container implements ISlotButtonUser{
 		for(EnumPipePostition pos : EnumPipePostition.values()){
 			ItemStack stack = new ItemStack(ItemStackMoverMod.slotButton,1);
 			stack.setStackDisplayName(pos.name());
-			slotButtonInv.setInventorySlotContents(index, stack);
 			if(tile.hasPipeAtPos(pos)){
-				this.addSlotToContainer(new SlotButton(slotButtonInv,index,index*SLOT_SIZE+SLOT_SIZE*9, SLOT_SIZE*12, this,pos.name()));
+				slotButtonInv.setInventorySlotContents(index, stack);
 			}
+			this.addSlotToContainer(new SlotButton(slotButtonInv,index,index*SLOT_SIZE+SLOT_SIZE*9, SLOT_SIZE*12, this,pos.name()));
 			index++;
 		}
 	}

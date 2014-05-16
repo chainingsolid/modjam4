@@ -1,6 +1,7 @@
 package chainingsolid.minecraft.itemStackMover;
 
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 import net.minecraft.block.BlockColored;
 import net.minecraft.entity.item.EntityItem;
@@ -80,5 +81,22 @@ public class Pipe {
 			return false;
 		}
 	}
+	
+	public void addSelfToGuiContianer(PipeHolderContainer contianer){
+		int connectionIndex= 0;
+		for(PipeBuffer pb : connections.values()){
+			
+		}
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
 	
 }
